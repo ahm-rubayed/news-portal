@@ -50,7 +50,7 @@ const displayDetails = details => {
       <div class="flex flex-col justify-between p-4 leading-normal">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${data.title ? data.title : "Not found"}</h5>
     <p class="mb-8 font-normal text-gray-400 dark:text-gray-400">${data.details.slice(0,450)}</p>
-    <div class="flex items-center justify-between pr-14">
+    <div class="flex items-center justify-between pr-0 sm:pr-14">
      <div class="flex">
      <img class="object-cover w-12 h-12 rounded-full mr-2" src="${data.author.img}">
      <div>

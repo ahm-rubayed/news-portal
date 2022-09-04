@@ -85,8 +85,29 @@
             </div>
         </section>
 
-       <div id="items-container">
-       </div>
+        <div id="items-container">
+        </div>
+
+        <section class="container mx-auto my-4">
+            <div class="flex justify-between">
+                <div class="col flex items-center">
+                    <h4 class="text-xl mr-2 capitalize font-meduim">Sort by view: </h4>
+                    <select disabled id="countries"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected="">Default</option>
+                        <option value="US">Breaking news</option>
+                        <option value="CA">Regular News</option>
+                        <option value="FR">International News</option>
+                        <option value="DE">Sports</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Todays Pick</button>
+
+                    <button type="button" class="text-dark hover:text-white border border-blue-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Trending</button>
+                </div>
+            </div>
+        </section>
 
         <!-- Categories Detail -->
         <section class="container mx-auto my-14">

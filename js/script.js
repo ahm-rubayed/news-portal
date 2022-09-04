@@ -1,7 +1,12 @@
 const catagory = async() => {
-  const res = await fetch(`https://openapi.programming-hero.com/api/news/categories`)
-  const data = await res.json();
-  catagoryContainer(data.data.news_category);
+  try{
+    const res = await fetch(`https://openapi.programming-hero.com/api/news/categories`)
+    const data = await res.json();
+    catagoryContainer(data.data.news_category);
+  }
+  catch(error){
+    console.log(error);
+  }
 };
 
 const catagoryContainer = (catagoryData) => {
@@ -20,10 +25,15 @@ const catagoryContainer = (catagoryData) => {
 };
 
 // Details
-const getDetails = id => {
-  fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
-    .then((res) => res.json())
-    .then((data) => displayDetails(data.data));
+const getDetails = async(id) => {
+  try{
+    const res = await fetch(`https://openapi.programming-hero.com/api/news/category/${id}`);
+    const data = await res.json();
+    displayDetails(data.data);
+  }
+  catch(error){
+    console.log(error);
+  }
 };
 
 const displayDetails = details => {
@@ -67,4 +77,3 @@ spinnerBtn.classList.add('hidden')
 
 getDetails();
 catagory();
-displayDetails()

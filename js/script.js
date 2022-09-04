@@ -1,7 +1,7 @@
-const catagory = () => {
-  fetch(`https://openapi.programming-hero.com/api/news/categories`)
-    .then((res) => res.json())
-    .then((data) => catagoryContainer(data.data.news_category));
+const catagory = async() => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/news/categories`)
+  const data = await res.json();
+  catagoryContainer(data.data.news_category);
 };
 
 const catagoryContainer = (catagoryData) => {
@@ -12,6 +12,9 @@ const catagoryContainer = (catagoryData) => {
     li.innerHTML = `
         <li class="my-1 lg:my-0 cursor-pointer" onclick="getDetails('${data.category_id}')">${data.category_name}</li>
         `;
+        const spinnerBtn = document.getElementById('spinner-btn');
+    spinnerBtn.classList.remove('hidden')
+    getDetails(data.category_id)
     catagoryCon.appendChild(li);
   });
 };
@@ -36,10 +39,7 @@ const displayDetails = details => {
       src="${data.thumbnail_url ? data.thumbnail_url : "No image found"}" alt="">
       <div class="flex flex-col justify-between p-4 leading-normal">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${data.title ? data.title : "Not found"}</h5>
-    <p class="mb-8 font-normal text-gray-400 dark:text-gray-400">${data.details.slice(
-      0,
-      450
-    )}</p>
+    <p class="mb-8 font-normal text-gray-400 dark:text-gray-400">${data.details.slice(0,450)}</p>
     <div class="flex items-center justify-between pr-14">
      <div class="flex">
      <img class="object-cover w-12 h-12 rounded-full mr-2" src="${data.author.img}">
@@ -59,6 +59,8 @@ const displayDetails = details => {
     </div>
 </div>
 </div> `;
+const spinnerBtn = document.getElementById('spinner-btn');
+spinnerBtn.classList.add('hidden')
     detailsContainer.appendChild(detailDiv);
   });
 };
